@@ -77,7 +77,21 @@
             /* เพิ่มระยะบรรทัดให้อ่านง่ายขึ้น */
         }
 
-       
+
+        h4 {
+            font-family: 'Playpen Sans Thai', sans-serif;
+            font-size: 1.3rem;
+            /* ขนาดตัวอักษร */
+            margin-top: 50px;
+            font-weight: 400;
+            /* น้ำหนักตัวอักษร (Bold) */
+            color: #444;
+            /* สีข้อความ */
+        }
+
+      
+
+
         .custom-navbar {
   background-color: #F28C6B !important;
   padding-bottom: 10px;
@@ -113,28 +127,12 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.chapter-title {
-  width: 80%;                /* ปรับความกว้างของกล่องให้แคบลง (เช่น 80% ของหน้าจอ) */
-  max-width: 600px;          /* จำกัดความกว้างสูงสุด */
-  margin-top: 15px auto;         /* จัดให้อยู่กลางจอ */
-  text-align: left;          /* ข้อความชิดซ้ายภายในกล่อง */
-  font-size: 1.5rem;
-  line-height: 1.6;
-  white-space: nowrap; /* ไม่ให้ขึ้นบรรทัดใหม่ */
-  text-overflow: ellipsis; /* ถ้าข้อความยาวเกิน จะขึ้น ... */
-  
-}
-
-.chapter-wrapper {
-  padding-top: 100px; /* หรือใช้ margin-top ก็ได้ */
-}
 
 
-.accordion-button {
-    background-color: #ffcc80; /* สีพื้นหลังปุ่ม */
-    color: #4e342e;            /* สีข้อความ */
-    font-weight: bold;
-  }
+
+
+
+
 
   .accordion-button:not(.collapsed) {
     background-color: #ffa726; /* สีเมื่อเปิด accordion */
@@ -147,12 +145,9 @@ margin-right: auto;
   }
 
   .accordion-item {
-    border: 1px solid #ffe0b2; /* เส้นขอบแต่ละ accordion */
-    display: flex;
-  flex-direction: column;
-  gap: 1rem; /* ช่องว่างระหว่างกล่อง */
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px; /* ระยะห่างระหว่างกล่อง */
+}
+
 
 
 .accordion-box {
@@ -168,13 +163,60 @@ margin-right: auto;
 }
 
 .chapter-box {
-     background-color: #fff8e1; /* สีพื้นหลังอ่อน */
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  height: 100%; /* ยืดเต็มความสูงของ col */
-  display: flex;
+ 
+
   flex-direction: column;
-  justify-content: flex-start; /* ชิดด้านบน */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+/* สำหรับหน้าจอขนาดเล็ก (มือถือ) */
+@media (max-width: 768px) {
+  .chapter-box {
+    text-align: center;          /* จัดกลางให้อ่านง่าย */
+    padding: 20px;               /* ลดระยะขอบ */
+  }
+
+  .chapter-title {
+    font-size: 1rem;             /* ลดขนาดตัวอักษร */
+    line-height: 1.4;            /* เพิ่มระยะบรรทัด */
+    word-break: break-word;      /* บังคับตัดคำยาว */
+    white-space: normal;         /* ให้ข้อความขึ้นบรรทัดใหม่ได้ */
+  }
+}
+
+.chap-button {
+  background-color: #ffa726;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 16px 20px;
+  margin-top: 2px;
+  height: 80px; /* กำหนดความสูงแบบตายตัว */
+  color: #4e342e;
+  display: flex;
+  align-items: center; /* จัดตัวอักษรให้อยู่ตรงกลางแนวตั้ง */
+  box-sizing: border-box; /* ให้ padding ไม่ทำให้ขนาดเพี้ยน */
+  line-height: 1.4;
+  
+}
+
+
+/* ปรับเฉพาะ accordion-button */
+.accordion-button {
+  background-color: #ffa726;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px 30px;
+  height: 80px; /* หรือ min-height ก็ได้ */
+  color: #4e342e;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  outline: none;
+  line-height: 1.8;
 }
 
 .section-heading {
@@ -258,7 +300,7 @@ margin-right: auto;
 
                 <!-- กล่องใส่ข้อความ -->
 
-                <div class="col-12 col-md-6 col xl-6 profile-container my-5 text-center">
+                <div class="col-12 col-md-6 col-xl-6 profile-container my-5 text-center">
                     <h1> "ร้านเหมียวเหมียว"</h1>
                     <h2 class="text-highlight">คือที่ที่ความอ่อนโยนกำลังรอคุณอยู่</h2>
                     <p class="mt-3 text-secondary">ถ้าใจมันล้า...มาหาแมวกันเถอะ
@@ -300,7 +342,7 @@ margin-right: auto;
             ที่ร้านเหมียวในตู้เสื้อผ้าแห่งนี้เถ้าแก่เหมียวจะคอยรับฟังเรื่องราวของคุณ!
                 แม้จะไม่ชำนาญในการให้คำปรึกษาและปลอบโยน 
         </h2>
-        <img src="images/cat-01.png" class="center-img">
+        <img src="images/cat-01.png" class="center-img img-fluid">
 
         <h3 class="p-center"> แต่หากคุณเล่าออกมา เราก็พร้อมรับฟังและจะช่วยทำให้คุณสบายใจ </h3>
 
@@ -321,7 +363,7 @@ margin-right: auto;
 <section class="hero-section">
     <div class="container">
         <div style="left: 0; width: 100%; height: 0; position:relative; padding-bottom: 56.25%;"><iframe
-                src="https://www.youtube.com/embed/o726wLN2h2g?rel=0"
+                src="https://www.youtube.com/embed/9g-ZVaCQ7vU?rel=0"
                 style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen
                 scrolling="no"
                 allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
@@ -336,19 +378,15 @@ margin-right: auto;
     <div class="row align-items-stretch">
       
       <!-- กล่องแนะนำตอน -->
-      <div class="col-md-6 d-flex">
+      <div class="col-12 col-md-6 mb-4">
         <div class="chapter-box p-4 w-100 ">
-          <h1 class="text-below p-center">CHAPTER</h1>
-          <h3 class="chapter-title">CHAPTER 1 วันต่างๆ ที่แม้จะไม่คุ้นชิน แต่ก็เปล่งประกาย</h3>
-          <h3 class="chapter-title">CHAPTER 2 วันต่างๆ ที่แบ่งปันและเติมเต็ม</h3>
-          <h3 class="chapter-title">CHAPTER 3 วันต่างๆ ที่จบลงแล้วเริ่มต้นใหม่</h3>
-          <h3 class="chapter-title">CHAPTER 4 วันต่างๆ ที่จะดำเนินไปอย่างยินดี</h3>
+ <img src="images/cat-03.webp" class="center-img img-fluid">
         </div>
       </div>
 
       <!-- กล่อง Accordion -->
        
-      <div class="col-md-6 d-flex">
+      <div class="col-12 col-md-6 d-flex">
         <div class="accordion-box w-100">
           <div class="accordion accordion-flush" id="accordionFlushExample">
             <h2 class="p-center" style="margin-bottom: 30px;">แต่ละตอนให้อะไรกับเราบ้าง ?</h2>
@@ -360,9 +398,9 @@ margin-right: auto;
                   data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                   ช่วงชีวิตที่อยู่ในพื้นที่ไม่คุ้น
                 </button>
-              </h2>
+              </h2> 
               <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"><p>ให้กำลังใจว่า แม้ในช่วงที่เรายังไม่คล่องตัว ยังปรับตัว ยังไม่รู้สึก “อยู่ตัว” — แต่ก็มีคุณค่า มีประกาย อยู่ภายในตัวเราแล้ว</p></div>
+                <div class="accordion-body"> <h4>CHAPTER 1 - วันต่างๆ ที่แม้จะไม่คุ้นชิน แต่ก็เปล่งประกาย </h4><p> ให้กำลังใจว่า แม้ในช่วงที่เรายังไม่คล่องตัว ยังปรับตัว ยังไม่รู้สึก “อยู่ตัว” — แต่ก็มีคุณค่า มีประกาย อยู่ภายในตัวเราแล้ว</p></div>
               </div>
             </div>
             <!-- Accordion Item #2 -->
@@ -375,7 +413,7 @@ margin-right: auto;
                 </button>
               </h2>
               <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"><p>สื่อว่าส่วนหนึ่งของการพักใจคือการเปิดใจให้ “แบ่งปัน” และรับการเติมเต็ม — เราไม่จำเป็นต้องแบกรับทุกอย่างเอง</p></div>
+                <div class="accordion-body"><h4>CHAPTER 2 วันต่างๆ ที่แบ่งปันและเติมเต็ม</h4><p>สื่อว่าส่วนหนึ่งของการพักใจคือการเปิดใจให้ “แบ่งปัน” และรับการเติมเต็ม — เราไม่จำเป็นต้องแบกรับทุกอย่างเอง</p></div>
               </div>
             </div>
              <!-- Accordion Item #3 -->
@@ -387,7 +425,7 @@ margin-right: auto;
                 </button>
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"><p>เตือนว่า การจบไม่ใช่จุดสิ้นสุด — เราสามารถเริ่มใหม่ได้ และที่พักใจนั้นช่วยให้เราข้ามผ่านช่วงเปลี่ยนผ่านนั้นได้</p></div>
+                <div class="accordion-body"><h4>CHAPTER 3 วันต่างๆ ที่จบลงแล้วเริ่มต้นใหม่</h4><p>เตือนว่า การจบไม่ใช่จุดสิ้นสุด — เราสามารถเริ่มใหม่ได้ และที่พักใจนั้นช่วยให้เราข้ามผ่านช่วงเปลี่ยนผ่านนั้นได้</p></div>
               </div>
             </div>
             <!-- Accordion Item #4 -->
@@ -399,7 +437,7 @@ margin-right: auto;
                 </button>
               </h2>
               <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"><p>ให้ภาพของชีวิตที่ไม่ใช่แค่ “ฟื้นตัว” แต่ “ดำเนินไป” ด้วยความยินดี — แม้จะมีความเปลี่ยนแปลง — เราเลือกเดินไปได้ด้วยใจที่สงบขึ้น</p></div>
+                <div class="accordion-body"><h4>CHAPTER 4 วันต่างๆ ที่จะดำเนินไปอย่างยินดี</h4><p>ให้ภาพของชีวิตที่ไม่ใช่แค่ “ฟื้นตัว” แต่ “ดำเนินไป” ด้วยความยินดี — แม้จะมีความเปลี่ยนแปลง — เราเลือกเดินไปได้ด้วยใจที่สงบขึ้น</p></div>
               </div>
             </div>
           
@@ -416,6 +454,20 @@ margin-right: auto;
     </div>
   </div>
 </section>
+
+
+   <section class="hero-section">
+
+    <div class="container div1-color">
+        <h1 class="text-below p-center">ช่องทางการสั่งซื้อ 
+        </h1>
+         <a href="https://www.jamsai.com/product-details/9786168329672/bistro-nyang/"><h3 class="p-center footer-text">อยากพักใจ กดนี่เลย!</h3></a>
+
+        <img src="images/cat-02.webp" class="center-img img-fluid">
+       
+
+    </div>
+   </section>
 
 
 
